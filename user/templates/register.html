@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet"
+          href="{% static 'assets/log-reg/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'assets/log-reg/css/style.css' %}">
+</head>
+<body>
+
+<div class="main">
+
+    <!-- Sign up form -->
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Sign up</h2>
+                    <form method="POST" class="register-form" id="register-form">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label><i class="zmdi zmdi-email"></i></label>
+                            {{ form.email|add_class:"form-control" }}
+                            {{ form.email.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            {{ form.name|add_class:"form-control" }}
+                            {{ form.name.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="zmdi zmdi-lock"></i></label>
+                            {{ form.password1|add_class:"form-control" }}
+                            {{ form.password1.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="zmdi zmdi-lock-outline"></i></label>
+                            {{ form.password2|add_class:"form-control" }}
+                            {{ form.password2.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"/>
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all
+                                statements in <a href="#" class="term-service">Terms of service</a></label>
+                        </div>
+
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="{% static 'assets/log-reg/images/signup-image.jpg' %}" alt="sing up image">
+                    </figure>
+                    <a href="{% url 'login' %}" class="signup-image-link">I am already member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- JS -->
+<script src="{% static 'assets/log-reg/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'assets/log-reg/js/main.js' %}"></script>
+<script>
+    const form_fields = document.getElementsByTagName("input")
+
+    form_fields[1].placeholder = 'Email Address'
+    form_fields[2].placeholder = 'Your Name'
+    form_fields[3].placeholder = 'Password'
+    form_fields[4].placeholder = 'Repeat your password'
+</script>
+</body>
+</html>
