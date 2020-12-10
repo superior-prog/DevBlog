@@ -1,7 +1,7 @@
 # DevBlog - A Minimal Blog Site
 
 ##### Home Page
-![logo](ss\Home.png?raw=true "Logo")
+![logo](/ss/Home.png?raw=true "Logo")
 
 ## How to run:
 ### 1. Create an virtual environment
