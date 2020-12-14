@@ -4,9 +4,6 @@ from .forms import *
 from django.contrib.auth import authenticate, login, logout
 
 
-
-
-
 @unauthenticated_user
 def login_page(request):
     if request.POST:
@@ -47,7 +44,7 @@ def user_register(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(email=email, password=raw_password)
             login(request, user)
-            return redirect('home')
+            return redirect('blog-home')
         else:
             return render(request, 'register.html', {"form": form})
 
