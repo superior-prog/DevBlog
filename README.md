@@ -21,7 +21,6 @@
 `pip install django`<br>
 `pip install pillow`<br>
 `pip install django-ckeditor`<br>
-`pip install django-filter`<br>
 `pip install django-widget-tweaks`
 ### 4. Go into project directory
 `cd DevBlog`
