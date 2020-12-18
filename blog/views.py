@@ -91,7 +91,7 @@ def add_blog_view(request):
         if form.is_valid():
             blog = form.save()
             blog.author = request.user
-            slug_str = "%s %s" % (blog.blog_title, blog.date_posted)
+            slug_str = "%s %s" % (blog.blog_title, blog.id)
             blog.slug = slugify(slug_str)
             form.save()
             return redirect('blog-home')

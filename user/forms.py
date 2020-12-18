@@ -24,6 +24,7 @@ class LoginForm(forms.Form):
 class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=255, help_text='Required. Add a valid email address')
     name = forms.CharField(max_length=60)
+    check = forms.BooleanField(required=True)
     password1 = forms.CharField(
         label='Password',
         widget=forms.PasswordInput(),
@@ -32,5 +33,5 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ("name", "email", "password1", "password2",)
+        fields = ("name", "email", "password1", "password2", "check")
 
