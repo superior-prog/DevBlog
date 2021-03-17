@@ -6,9 +6,9 @@ urlpatterns = [
     # path('', home, name='home'),
 
     # user login and logout url
-    path('account/login', login_page, name='login'),
-    path('account/logout', logout_user, name='logout'),
+    path('accounts/login', login_page, name='login'),
+    path('accounts/logout', logout_user, name='logout'),
 
     # applicant registration url
-    path('account/user-registration', user_register, name='user-register'),
+    path('accounts/signup', user_register, name='user-register'),
 ]
