@@ -17,7 +17,7 @@ def login_page(request):
                 login(request, user)
                 if request.GET.get('next'):
                     return redirect(request.GET.get('next'))
-                return redirect('applicant-feed')
+                return redirect('blog-home')
             else:
                 return redirect('login')
         else:
