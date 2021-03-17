@@ -26,7 +26,7 @@ def blog_home_view(request):
         'blogs': blogs,
         'blog_search': blog_search,
     }
-    return render(request, 'blog-home.html', context)
+    return render(request, 'blog/blog-home.html', context)
 
 
 def blogs_view(request, pk):
@@ -52,7 +52,7 @@ def blogs_view(request, pk):
         'blogs': blogs,
         'blog_search': blog_search,
     }
-    return render(request, 'blogs.html', context)
+    return render(request, 'blog/blogs.html', context)
 
 
 def blog_details_view(request, slug):
@@ -79,7 +79,7 @@ def blog_details_view(request, slug):
         'comment_form': comment_form,
         'comments': comments,
     }
-    return render(request, 'blog-details.html', context)
+    return render(request, 'blog/blog-details.html', context)
 
 
 @login_required(login_url='login')
@@ -100,13 +100,13 @@ def add_blog_view(request):
                 'task': task,
                 'form': form,
             }
-            return render(request, 'add-edit-blog.html', context)
+            return render(request, 'blog/add-edit-blog.html', context)
 
     context = {
         'task': task,
         'form': form,
     }
-    return render(request, 'add-edit-blog.html', context)
+    return render(request, 'blog/add-edit-blog.html', context)
 
 
 @login_required(login_url='login')
@@ -129,7 +129,7 @@ def edit_blog_view(request, slug):
         'task': task,
         'form': form,
     }
-    return render(request, 'add-edit-blog.html', context)
+    return render(request, 'blog/add-edit-blog.html', context)
 
 
 @login_required(login_url='login')
@@ -142,7 +142,7 @@ def delete_blog_view(request, slug):
     context = {
         'item': blog,
     }
-    return render(request, 'delete-blog.html', context)
+    return render(request, 'blog/delete-blog.html', context)
 
 
 @login_required(login_url='login')
@@ -165,7 +165,7 @@ def edit_comment_view(request, pk):
         'blog': blog,
         'comments': comments,
     }
-    return render(request, 'blog-details.html', context)
+    return render(request, 'blog/blog-details.html', context)
 
 
 @login_required(login_url='login')
@@ -179,4 +179,4 @@ def delete_comment_view(request, pk):
     context = {
         'item': comment,
     }
-    return render(request, 'delete-comment.html', context)
+    return render(request, 'blog/delete-comment.html', context)

@@ -21,12 +21,12 @@ def login_page(request):
             else:
                 return redirect('login')
         else:
-            return render(request, 'login.html', {'form': form})
+            return render(request, 'user/login.html', {'form': form})
     form = LoginForm()
     context = {
         'form': form
     }
-    return render(request, 'login.html', context)
+    return render(request, 'user/login.html', context)
 
 
 def logout_user(request):
@@ -46,10 +46,10 @@ def user_register(request):
             login(request, user)
             return redirect('blog-home')
         else:
-            return render(request, 'register.html', {"form": form})
+            return render(request, 'user/register.html', {"form": form})
 
     form = UserRegistrationForm()
     context = {
         "form": form
     }
-    return render(request, 'register.html', context)
+    return render(request, 'user/register.html', context)
