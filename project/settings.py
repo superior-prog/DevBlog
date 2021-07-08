@@ -27,6 +27,13 @@ INSTALLED_APPS = [
     'django_filters',
     'widget_tweaks',
 
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+SITE_ID = 1
+
 AUTH_USER_MODEL = 'user.User'
 
 CKEDITOR_CONFIGS = {
@@ -88,6 +98,12 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
